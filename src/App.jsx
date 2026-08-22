@@ -18,10 +18,32 @@ export default function App() {
 
   useEffect(() => applyTheme(theme), []);
   useEffect(() => {
+    const handleBrowserBack = () => {
+      setServicesOpen(false);
+      setTeamOpen(false);
+      setTreatmentState(null);
+    };
+    window.addEventListener('popstate', handleBrowserBack);
+    return () => window.removeEventListener('popstate', handleBrowserBack);
+  }, []);
+  useEffect(() => {
     const overlayOpen = servicesOpen || teamOpen || Boolean(treatmentState);
     document.body.style.overflow = overlayOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [servicesOpen, teamOpen, treatmentState]);
+
+  const openOverlay = (name, open) => {
+    window.history.pushState({ ...(window.history.state ?? {}), clinicOverlay: name }, '');
+    open();
+  };
+
+  const closeOverlay = (name, close) => {
+    if (window.history.state?.clinicOverlay === name) {
+      window.history.back();
+      return;
+    }
+    close();
+  };
 
   const bookFromCatalogue = (service) => {
     setSelectedService(service);
@@ -30,13 +52,14 @@ export default function App() {
   };
 
   return <>
-    <DesktopSite clinic={clinic} selectedService={selectedService} setSelectedService={setSelectedService} openServices={() => setServicesOpen(true)} />
-    <MobileSite clinic={clinic} openServices={() => setServicesOpen(true)} openTeam={() => setTeamOpen(true)} openTreatments={(state) => setTreatmentState(state)} selectedService={selectedService} setSelectedService={setSelectedService} />
-    <TreatmentSheet open={Boolean(treatmentState)} onClose={() => setTreatmentState(null)} value={treatmentState?.service} onSelect={(service) => {
+    <DesktopSite clinic={clinic} selectedService={selectedService} setSelectedService={setSelectedService} openServices={() => openOverlay('services', () => setServicesOpen(true))} />
+    <MobileSite clinic={clinic} openServices={() => openOverlay('services', () => setServicesOpen(true))} openTeam={() => openOverlay('team', () => setTeamOpen(true))} openTreatments={(state) => openOverlay('treatment', () => setTreatmentState(state))} selectedService={selectedService} setSelectedService={setSelectedService} />
+    <TreatmentSheet open={Boolean(treatmentState)} onClose={() => closeOverlay('treatment', () => setTreatmentState(null))} value={treatmentState?.service} onSelect={(service) => {
       treatmentState?.setService(service);
       setTreatmentState((current) => current ? { ...current, service } : current);
     }} />
-    <TeamOverlay open={teamOpen} onClose={() => setTeamOpen(false)} />
-    <ServicesOverlay open={servicesOpen} onClose={() => setServicesOpen(false)} onBook={bookFromCatalogue} />
+    <TeamOverlay open={teamOpen} onClose={() => closeOverlay('team', () => setTeamOpen(false))} />
+    <ServicesOverlay open={servicesOpen} onClose={() => closeOverlay('services', () => setServicesOpen(false))} onBook={bookFromCatalogue} />
   </>;
 }
+
