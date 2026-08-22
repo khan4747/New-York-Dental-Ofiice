@@ -1,6 +1,6 @@
-# DentX React Clinic Template
+# New York Dental Office Website
 
-A reusable React and Vite clinic website derived from the approved DentX static design. The desktop and mobile layouts remain separate responsive experiences while clinic information and theme values are centralized for safe client customization.
+A responsive React and Vite redesign concept prepared for New York Dental Office. It includes dedicated desktop and mobile layouts, clinic services, dentists, reviews, appointment requests, contact details, and location information.
 
 ## Customize a clinic
 
@@ -27,3 +27,4 @@ The deployable production output is written to `dist/`.
 ## Current product tier
 
 This project is frontend-only. Appointment requests open WhatsApp and are not stored in a database. A booking API, authentication, database, and admin dashboard can be added later as a separate upgrade without redesigning this frontend.
+
