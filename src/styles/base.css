@@ -1,0 +1,12 @@
+:root{
+  --navy:#0F172A;--dark-card:#2A374A;--dark-card2:#1E293B;--dark-input:#334155;
+  --teal:#0D9488;--teal-accent:#14B8A6;--teal-soft:#CCFBF1;--teal-dark:#0f766e;
+  --hero-accent:#FFFFFF;
+  --bg-app:#F8FAFC;--card-bg:#FFFFFF;--text:#0F172A;--text-sub:#64748B;--border:#E2E8F0;
+  --rad-app:20px;--rad:14px;--shad-sm:0 2px 8px rgba(15,23,42,0.04);--shad-md:0 8px 24px rgba(15,23,42,0.06);--t:all .22s ease-in-out
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;scroll-behavior:smooth;font-family:'Inter',sans-serif;color:var(--text);background:var(--bg-app);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy)}
+@media(min-width:769px){.mobile-app-wrapper{display:none!important}.desktop-web-wrapper{display:block!important}}
+@media(max-width:768px){.desktop-web-wrapper{display:none!important}.mobile-app-wrapper{display:block!important}}
