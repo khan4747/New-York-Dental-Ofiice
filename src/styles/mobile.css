@@ -1,13 +1,13 @@
 /* MOBILE STYLES */
 .mobile-app-wrapper{background:var(--navy);min-height:100vh;min-height:100dvh}
 .app-shell{max-width:480px;margin:0 auto;background:var(--bg-app);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
-.app-header{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,#fff 0%,#F0FDFA 100%);backdrop-filter:blur(16px);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(13,148,136,.15)}
+.app-header{position:sticky;top:0;z-index:100;min-height:62px;background:linear-gradient(135deg,#fff 0%,#F0FDFA 100%);backdrop-filter:blur(16px);padding:12px 15px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(13,148,136,.15)}
 .app-brand-wrapper{min-width:0;flex:1}
-.app-brand{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:800;color:var(--navy);line-height:1.1;white-space:nowrap;letter-spacing:-.025em}
+.app-brand{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.12rem;font-weight:800;color:var(--navy);line-height:1.1;white-space:nowrap;letter-spacing:-.025em}
 .app-brand span{color:var(--teal)}
-.app-brand-sub{font-size:.58rem;color:var(--text-sub);font-weight:600;display:flex;align-items:center;gap:4px;margin-top:3px;white-space:nowrap}
+.app-brand-sub{font-size:.61rem;color:var(--text-sub);font-weight:600;display:flex;align-items:center;gap:4px;margin-top:3px;white-space:nowrap}
 .status-dot-pulse{width:6px;height:6px;background:#22C55E;border-radius:50%}
-.phc-pill-styled{background:linear-gradient(135deg,#CCFBF1 0%,#E0F2FE 100%);color:var(--teal-dark);font-size:.64rem;font-weight:700;padding:5px 8px;border-radius:20px;display:flex;align-items:center;gap:4px;border:1px solid rgba(13,148,136,.25);white-space:nowrap;flex:0 0 auto}
+.phc-pill-styled{background:linear-gradient(135deg,#CCFBF1 0%,#E0F2FE 100%);color:var(--teal-dark);font-size:.66rem;font-weight:700;padding:6px 9px;border-radius:20px;display:flex;align-items:center;gap:4px;border:1px solid rgba(13,148,136,.25);white-space:nowrap;flex:0 0 auto}
 .app-body{padding:14px 18px 0;flex:1 0 auto}
 
 .hero-app-card{
@@ -29,7 +29,8 @@
 .app-section-title span{font-size:.78rem;color:var(--teal);font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px}
 .mobile-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
 .stat-chip{min-width:0;min-height:76px;background:#fff;padding:11px 5px;border-radius:14px;border:1px solid var(--border);box-shadow:var(--shad-sm);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.stat-chip h3{font-size:1.02rem;line-height:1.1;color:var(--navy);font-weight:800;white-space:nowrap;margin:0}
+.stat-chip h3{font-size:1.12rem;line-height:1.1;color:var(--navy);font-weight:800;white-space:nowrap;margin:0}
+.stat-chip:first-child h3{font-size:.92rem}
 .stat-chip p{font-size:.66rem;line-height:1.2;color:var(--text-sub);margin:4px 0 0;white-space:nowrap}
 
 /* MOBILE SERVICES: COMPACT LIST VIEW ONLY */
