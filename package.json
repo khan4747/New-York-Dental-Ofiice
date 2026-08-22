@@ -1,5 +1,5 @@
 {
-  "name": "dentx-react-template",
+  "name": "new-york-dental-office",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -22,3 +22,4 @@
     "vite": "^8.2.0"
   }
 }
+
