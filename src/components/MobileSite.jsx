@@ -30,7 +30,7 @@ export default function MobileSite({ clinic, openServices, openTeam, openTreatme
       <main className="app-body">
         <div className="hero-app-card" id="m-home"><span className="hero-tag">• Upper East Side, New York</span><h1 className="hero-title">Advanced Dental Care For <span>Your Family</span></h1><p className="hero-subtitle">Comprehensive family, cosmetic, restorative, and emergency care in a modern practice.</p><a href="#m-booking" className="btn-app-submit">Request Appointment <Icon name="arrow-right" size={16} /></a></div>
         <div className="quick-actions">{[['calendar','Book','#m-booking'],['phone-call','Call Us',`tel:${clinic.phone}`],['stethoscope','Services','#m-services'],['users','Doctors','#m-team']].map(([icon,label,href]) => <a key={label} href={href} className="action-item"><div className="action-icon"><Icon name={icon} size={20} /></div><span className="action-label">{label}</span></a>)}</div>
-        <div className="app-section"><div className="mobile-stat-grid"><div className="stat-chip"><h3>Since 1971</h3><p>NYC Care</p></div><div className="stat-chip"><h3>4.9★</h3><p>Rating</p></div><div className="stat-chip"><h3>500+</h3><p>Reviews</p></div></div></div>
+        <div className="app-section"><div className="mobile-stat-grid"><div className="stat-chip"><h3>1971</h3><p>NYC Care</p></div><div className="stat-chip"><h3>4.9★</h3><p>Rating</p></div><div className="stat-chip"><h3>500+</h3><p>Reviews</p></div></div></div>
 
         <div className="app-section" id="m-services"><div className="app-section-title">Popular Services <button onClick={openServices}>View All <Icon name="chevron-right" size={13} /></button></div><div className="mobile-services-container"><div className="services-app-list">{services.slice(0,4).map((service,index) => <div className="service-app-card" key={service.name}><div className="service-card-left"><div className="service-app-icon"><Icon name={service.icon} size={18} /></div><div className="service-app-info"><h4>{mobileServiceNames[index]}</h4><p>{mobileServiceCopy[index]}</p></div></div><button className="service-book-btn" onClick={() => bookService(service.name)}>Book</button></div>)}</div></div></div>
 
@@ -38,7 +38,7 @@ export default function MobileSite({ clinic, openServices, openTeam, openTreatme
 
         <div className="app-section" id="m-why"><div className="app-section-title">Why Choose Us?</div><div className="services-app-list">{reasons.map((reason) => <div className="service-app-card" key={reason.title} style={{ borderLeft: '4px solid var(--teal)' }}><div className="service-card-left"><div className="service-app-icon"><Icon name={reason.icon} size={18} /></div><div className="service-app-info"><h4>{reason.title}</h4><p>{reason.description}</p></div></div></div>)}</div></div>
 
-        <div className="app-section" id="m-gallery"><div className="app-section-title">Our Practice Gallery</div><div className="mobile-smile-gallery">{smileGallery.map((item) => <figure key={item.label}><img src={item.image} alt={item.label} /><figcaption>{item.label}</figcaption></figure>)}</div></div>
+        <div className="app-section practice-gallery-section" id="m-gallery"><div className="app-section-title">Our Practice Gallery</div><div className="mobile-smile-gallery">{smileGallery.map((item) => <figure key={item.label}><img src={item.image} alt={item.label} /><figcaption>{item.label}</figcaption></figure>)}</div></div>
 
         <div className="app-section" id="m-booking"><div className="app-section-title">Book An Appointment</div><div className="booking-app-card"><AppointmentForm key={selectedService} clinic={clinic} mobile initialService={selectedService} onOpenTreatments={openTreatments} /></div></div>
 
@@ -50,3 +50,4 @@ export default function MobileSite({ clinic, openServices, openTeam, openTreatme
     </div></div>
   );
 }
+
